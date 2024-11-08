@@ -1,0 +1,13 @@
+---
+#################################################
+# Claim (Exemplo de uso)
+# Solicitação de criação de bucket por usuário final
+#################################################
+apiVersion: storage.example.org/v1alpha1
+kind: Bucket    # Usa o tipo definido em claimNames do XRD
+metadata:
+ name: meu-bucket        # Nome do recurso no Kubernetes
+ namespace: default      # Namespace onde o bucket será solicitado
+spec:
+ name: meu-bucket-exemplo  # Nome real do bucket na AWS
+ # region é opcional, usará us-east-1 por default

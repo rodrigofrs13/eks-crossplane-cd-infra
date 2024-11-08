@@ -1,0 +1,40 @@
+#################################################
+# XRD (CompositeResourceDefinition)
+# Define a estrutura do recurso personalizado que será exposto aos usuários
+#################################################
+apiVersion: apiextensions.crossplane.io/v1
+kind: CompositeResourceDefinition
+metadata:
+ name: xbuckets.storage.example.org  # Nome único do recurso personalizado
+spec:
+ # Configuração da API personalizada
+ group: storage.example.org
+ names:
+   kind: XBucket     # Nome usado internamente (cluster-scoped)
+   plural: xbuckets  # Plural para URLs da API
+ claimNames:         
+   kind: Bucket      # Nome exposto aos usuários finais (namespace-scoped)
+   plural: buckets   # Plural para usuários finais
+ versions:
+   - name: v1alpha1
+     served: true    # Versão está ativa
+     referenceable: true
+     schema:
+       openAPIV3Schema:
+         type: object
+         properties:
+           spec:
+             type: object
+             properties:
+               # Campos que os usuários podem configurar
+               name:
+                 type: string
+                 description: "Nome do bucket"
+               region:
+                 type: string
+                 description: "Região do bucket"
+                 default: "us-east-1"  # Valor padrão se não especificado
+             required:
+               - name    # Apenas o nome é obrigatório
+
+---

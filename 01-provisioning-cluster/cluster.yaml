@@ -1,0 +1,46 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: crossplane-cd
+  region: us-east-1
+  version: '1.28'
+  tags:
+    karpenter.sh/discovery: cluster-with-karpenter
+
+availabilityZones: ["us-east-1a", "us-east-1b", "us-east-1c"]    
+
+vpc:
+  cidr: "10.0.0.0/16"
+  nat:
+    gateway: Single
+
+iam:
+  withOIDC: true
+
+karpenter:
+  version: 'v0.20.0'
+  createServiceAccount: true
+  withSpotInterruptionQueue: true
+
+nodeGroups:
+  - name: apps
+    availabilityZones: ["us-east-1a", "us-east-1b", "us-east-1c"]
+    instanceType: t3.amedium
+    desiredCapacity: 2
+    minSize: 2
+    maxSize: 4
+    labels:
+      role: apps
+    tags:
+      Environment: production
+    iam:
+      withAddonPolicies:
+        autoScaler: true
+        albIngress: true
+
+
+cloudWatch:
+    clusterLogging:
+        enableTypes: ["api", "audit", "authenticator", "controllerManager", "scheduler"]
+        logRetentionInDays: 1 

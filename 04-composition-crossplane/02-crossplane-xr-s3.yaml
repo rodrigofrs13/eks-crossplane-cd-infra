@@ -1,0 +1,48 @@
+---
+#################################################
+# Composition
+# Define como o recurso personalizado será implementado usando recursos da AWS
+#################################################
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+ name: bucket-aws
+ labels:
+   provider: aws    # Label para identificação
+spec:
+ # Link com o XRD criado acima
+ compositeTypeRef:
+   apiVersion: storage.example.org/v1alpha1
+   kind: XBucket
+ 
+ resources:
+   # Definição do bucket S3
+   - name: bucket
+     base:
+       apiVersion: s3.aws.upbound.io/v1beta1  # Provider AWS Upbound
+       kind: Bucket
+       metadata:
+         annotations:
+           # Garante que o nome do bucket na AWS seja igual ao especificado
+           crossplane.io/external-name: ${NAME}
+       spec:
+         forProvider:
+           region: us-east-1    # Região padrão
+           acl: private         # ACL padrão privado
+         # Usa autenticação via IRSA
+         providerConfigRef:
+           name: irsa-providerconfig    # Nome do ProviderConfig configurado no cluster
+     
+     # Patches mapeiam campos do XRD para configurações reais do bucket
+     patches:
+       # Mapeia o nome do bucket
+       - fromFieldPath: spec.name
+         toFieldPath: metadata.name
+       - fromFieldPath: spec.name
+         toFieldPath: metadata.annotations[crossplane.io/external-name]
+       
+       # Mapeia a região (opcional, usa default se não especificado)
+       - fromFieldPath: spec.region
+         toFieldPath: spec.forProvider.region
+         policy:
+           fromFieldPath: Optional    # Torna o patch opcional
