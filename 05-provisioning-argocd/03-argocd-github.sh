@@ -1,8 +1,5 @@
 # Integração do ArgoCD com o Github
 
-export GITHUB_PAT=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
-export URL_REPO=https://github.com/rodrigofrs13/eks-crossplane-cd-resources.git
-export GITHUB_USERNAME=rodrigofrs13
 
 kubectl apply -f - <<EOF
 ---
