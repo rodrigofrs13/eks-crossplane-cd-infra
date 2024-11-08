@@ -1,5 +1,5 @@
 # This will create a new namespace, argocd, where Argo CD services and application resources will live.
-# Ajustar o jq da linha 9
+# Ajustar o jq da linha 9#
 
 #kubectl config use-context controlplane
 kubectl create namespace argocd
