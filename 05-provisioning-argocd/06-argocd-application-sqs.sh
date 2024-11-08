@@ -1,7 +1,7 @@
 # O Application 'sqs-queues' permite implantar recursos do SQS que estão nos diretórios do GITHUB dentro do cluster utilizando o Crossplane.
 # https://argo-cd.readthedocs.io/en/stable/user-guide/skip_reconcile/
 
-export URL_REPO=https://github.com/rodrigofrs13/poc-eks-crossplane.git
+export URL_REPO=https://github.com/rodrigofrs13/eks-crossplane-cd-resources.git
 
 kubectl apply -f - <<EOF
 apiVersion: argoproj.io/v1alpha1

@@ -4,10 +4,8 @@
 # Solicitação de criação de bucket por usuário final
 #################################################
 apiVersion: storage.example.org/v1alpha1
-kind: Bucket    # Usa o tipo definido em claimNames do XRD
+kind: XBucket    # Usa o tipo definido em claimNames do XRD
 metadata:
- name: meu-bucket        # Nome do recurso no Kubernetes
- namespace: default      # Namespace onde o bucket será solicitado
+ name: crossplane-bucket-cd-claim-1       # Nome do recurso no Kubernetes
 spec:
- name: meu-bucket-exemplo  # Nome real do bucket na AWS
- # region é opcional, usará us-east-1 por default
+ name: crossplane-bucket-cd-claim-1  # Nome real do bucket na AWS

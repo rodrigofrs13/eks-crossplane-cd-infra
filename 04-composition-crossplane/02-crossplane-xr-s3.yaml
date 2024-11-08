@@ -29,6 +29,7 @@ spec:
          forProvider:
            region: us-east-1    # Região padrão
            acl: private         # ACL padrão privado
+           
          # Usa autenticação via IRSA
          providerConfigRef:
            name: irsa-providerconfig    # Nome do ProviderConfig configurado no cluster

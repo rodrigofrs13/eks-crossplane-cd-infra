@@ -1,7 +1,7 @@
 # O AppProject 'applications-project' permite que um usuário não administrador implante recursos na namespace ArgoCD dentro do cluster.
 # https://argo-cd.readthedocs.io/en/stable/user-guide/projects/
 
-export URL_REPO=https://github.com/rodrigofrs13/poc-eks-crossplane.git
+export URL_REPO=https://github.com/rodrigofrs13/eks-crossplane-cd-resources.git
 
 kubectl apply -f - <<EOF
 apiVersion: argoproj.io/v1alpha1

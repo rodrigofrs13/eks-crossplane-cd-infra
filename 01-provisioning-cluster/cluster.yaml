@@ -2,7 +2,7 @@ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-  name: crossplane-cd
+  name: cluster-cd
   region: us-east-1
   version: '1.28'
   tags:
@@ -26,9 +26,9 @@ karpenter:
 nodeGroups:
   - name: apps
     availabilityZones: ["us-east-1a", "us-east-1b", "us-east-1c"]
-    instanceType: t3.amedium
-    desiredCapacity: 2
-    minSize: 2
+    instanceType: t3a.medium
+    desiredCapacity: 3
+    minSize: 3
     maxSize: 4
     labels:
       role: apps

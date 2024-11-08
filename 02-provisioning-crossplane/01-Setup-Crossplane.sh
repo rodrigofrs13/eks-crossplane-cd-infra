@@ -10,6 +10,9 @@ helm upgrade --install crossplane crossplane-stable/crossplane \
 --namespace crossplane-system \
 --create-namespace \
 --set args='{"--enable-environment-configs"}' \
+--set "provider.packages.reconciliationInterval=1m" \  # Reduzido de 5m default
+--set "cache.enabled=true" \
+--set "cache.ttl=5m"
 --version 1.16.0;
 
 # Pods
@@ -17,4 +20,7 @@ helm upgrade --install crossplane crossplane-stable/crossplane \
 
 # Acompanha
 # kubectl logs -f -n crossplane-system deployment/crossplane
+
+#values chart
+# helm get values crossplane -n crossplane-system
 

@@ -1,5 +1,3 @@
-# Alterar na linha 24 com a role 
-
 cat <<EOF | kubectl apply -f -
 apiVersion: pkg.crossplane.io/v1beta1
 kind: DeploymentRuntimeConfig
@@ -24,3 +22,4 @@ spec:
         eks.amazonaws.com/role-arn: arn:aws:iam::246732148991:role/control-plane-admin
 EOF
 
+# kk get DeploymentRuntimeConfig
