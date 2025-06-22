@@ -6,6 +6,6 @@
 apiVersion: storage.example.org/v1alpha1
 kind: XBucket    # Usa o tipo definido em claimNames do XRD
 metadata:
- name: crossplane-bucket-cd-claim-2      # Nome do recurso no Kubernetes
+ name: crossplane-bucket-cd-claim-1      # Nome do recurso no Kubernetes
 spec:
- name: crossplane-bucket-cd-claim-2  # Nome real do bucket na AWS
+ name: crossplane-bucket-cd-claim-1  # Nome real do bucket na AWS
