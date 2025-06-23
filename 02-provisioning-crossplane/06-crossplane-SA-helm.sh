@@ -5,7 +5,7 @@ metadata:
   name: provider-helm
   namespace: crossplane-system
   annotations:
-    eks.amazonaws.com/role-arn: arn:aws:iam::246732148991:role/control-plane-admin
+    eks.amazonaws.com/role-arn: arn:aws:iam::xxx:role/control-plane-admin
 EOF
 
 ##  kk get sa -n crossplane-system
