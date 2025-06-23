@@ -2,9 +2,9 @@ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-  name: cluster-cd
+  name: cluster-cp
   region: us-east-1
-  version: '1.28'
+  version: '1.33'
   tags:
     karpenter.sh/discovery: cluster-with-karpenter
 

@@ -21,11 +21,11 @@ spec:
     path: ./cluster-eks
     helm:
       values: |
-        clusterName: meu-cluster-eks
+        clusterName: cluster-crossplane
         region: us-east-1
         nodeGroups:
           - name: ng-1
-            instanceType: t3.medium
+            instanceType: t3a.medium
             minSize: 1
             maxSize: 3
             desiredCapacity: 2

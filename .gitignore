@@ -1,0 +1,7 @@
+# Ignorar todos os arquivos .txt
+*.txt
+
+# Outras regras úteis
+node_modules/
+.env
+.DS_Store
