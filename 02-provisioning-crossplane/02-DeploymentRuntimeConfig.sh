@@ -6,7 +6,7 @@ metadata:
 spec:
   deploymentTemplate:
     spec:
-      replicas: 1
+      replicas: 3
       selector: {}
       template:
         spec:
@@ -19,7 +19,7 @@ spec:
   serviceAccountTemplate:
     metadata:
       annotations:
-        eks.amazonaws.com/role-arn: arn:aws:iam::246732148991:role/control-plane-admin
+        eks.amazonaws.com/role-arn: arn:aws:iam::xxx:role/control-plane-admin
 EOF
 
 # kk get DeploymentRuntimeConfig

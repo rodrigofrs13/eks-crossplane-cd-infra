@@ -17,4 +17,4 @@ EOF
 ## kubectl get queue.sqs.aws.upbound.io
 
 # Acompanha
-# kubectl logs -f -n crossplane-system deployment/provider-aws-sqs-7a356e3a0f47
+# kubectl logs -f -n crossplane-system deployment/provider-aws-sqs-adf16c852a58

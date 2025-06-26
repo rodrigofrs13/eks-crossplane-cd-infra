@@ -7,8 +7,12 @@ spec:
   credentials:
     source: WebIdentity
     webIdentity:
-      roleARN: "arn:aws:iam::246732148991:role/control-plane-admin"
+      roleARN: "arn:aws:iam::xxx:role/control-plane-admin"
 EOF
+
+# Como estou utilizando a mesma conta, sai pela Service Account
+# Mas poderia fazer um Assumerole em outra conta
+
 
 ## kk get providerconfigs.aws.upbound.io
 ## kk get crds | grep upbound

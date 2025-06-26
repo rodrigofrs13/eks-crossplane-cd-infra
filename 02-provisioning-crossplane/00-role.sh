@@ -5,7 +5,7 @@
 
 ####  TODO-Automatizar para pegar o ID da conta AWS e o OIDC do EKS
 
-export OIDC=246732148991
+export OIDC=xxx
 
 #kubectl config use-context controlplane;
 
@@ -16,12 +16,12 @@ aws iam create-role --role-name control-plane-admin --assume-role-policy-documen
         {
             "Effect": "Allow",
             "Principal": {
-                "Federated": "arn:aws:iam::246732148991:oidc-provider/oidc.eks.us-east-1.amazonaws.com/id/246732148991"
+                "Federated": "arn:aws:iam::xxx:oidc-provider/oidc.eks.us-east-1.amazonaws.com/id/xxx"
             },
             "Action": "sts:AssumeRoleWithWebIdentity",
             "Condition": {
                 "StringLike": {
-                    "oidc.eks.us-east-1.amazonaws.com/id/246732148991:sub": "system:serviceaccount:crossplane-system:provider-aws-*"
+                    "oidc.eks.us-east-1.amazonaws.com/id/xxx:sub": "system:serviceaccount:crossplane-system:provider-aws-*"
                 }
             }
         },
